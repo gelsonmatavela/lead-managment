@@ -195,7 +195,7 @@ export default function ListPageTemplate<T>({
           };
         input = (
           <Input
-            className='block w-full flex-1 max-w-80'
+            className='block w-full flex-1 max-w-80 bg-background'
             inputClassName='h-8 w-full'
             showSearchIcon={true}
             type={inputType}
@@ -228,12 +228,10 @@ export default function ListPageTemplate<T>({
     return { input, field };
   }, [filterName, searchTerm]);
 
-  // Holds the data columns for the csv data, only the td does not include the headers
   const [csvData, setCsvData] = useState<Record<string, string | number | boolean>[]>([]);
 
   const { dispatch } = useContext(AppContext);
 
-  // Setting up the current page title on the navbar
   useEffect(() => {
     dispatch({ type: 'set-page-title', payload: { title } });
   }, [title]);
@@ -242,7 +240,7 @@ export default function ListPageTemplate<T>({
     <>
       <div
         className={twMerge(
-          ' lg:max-w-[calc(120vw-80px)] sm:max-w-[calc(100vw-36px)] max-w-[calc(100vw-16px)]',
+          ' lg:w-full sm:w-full w-full',
           className
         )}
       >
@@ -251,7 +249,7 @@ export default function ListPageTemplate<T>({
             <div className='flex items-center sm:gap-2 gap-1 flex-1'>
               <Select
                 placeholder='Filtrar Por'
-                className='hover:bg-transparent text-left  rounded-lg border '
+                className='hover:bg-background text-left  rounded-lg border '
                 selectClassName='small-xl:w-[150px] sm:w-auto xs:w-[100px]  text-zinc-500 hover:bg-transparent p-0 py-1 px-0'
                 selectContainerClassName='p-2 h-9 gap-2 '
                 value={filterName}
@@ -261,7 +259,7 @@ export default function ListPageTemplate<T>({
                 ).map((label) => ({ value: label, label }))}
                 valueSpanClassName='small-xl:inline hidden'
               >
-                <FilterIcon className='text-zinc-500' size={18} />
+                <FilterIcon className='text-zinc-700' size={18} />
               </Select>
               <div className='small-sm:w-64 w-96'>{filterField.input}</div>
             </div>
@@ -406,45 +404,41 @@ export default function ListPageTemplate<T>({
 const TableShimmer = () => {
   return (
     <div className='w-full animate-pulse mt-2 border rounded-md overflow-hidden'>
-      {/* Header with proper column widths */}
       <div className='flex items-center border-b border-gray-200 py-3 border-t px-3'>
         <div className='w-10 h-5 flex-shrink-0 '>
-          <div className='w-4 h-4 bg-gray-200 rounded'></div>
+          <div className='w-4 h-4 bg-background rounded'></div>
         </div>
-        <div className=' h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-        <div className='h-5 bg-gray-200 rounded flex-shrink-0 mr-4 w-[440px]'></div>
-        <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-        <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-        <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-        <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-        <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-        <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-        <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-        <div className='w-32 h-5 bg-gray-200 rounded flex-shrink-0'></div>
+        <div className=' h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+        <div className='h-5 bg-background rounded flex-shrink-0 mr-4 w-[440px]'></div>
+        <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+        <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+        <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+        <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+        <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+        <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+        <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+        <div className='w-32 h-5 bg-background rounded flex-shrink-0'></div>
       </div>
 
-      {/* Rows */}
       {[...Array(10)].map((_, rowIndex) => (
         <div
           key={`row-${rowIndex}`}
           className='flex items-center py-3 border-b border-gray-200 px-3'
         >
           <div className='w-10 h-5 flex-shrink-0 mr-4'>
-            <div className='w-4 h-4 bg-gray-200 rounded'></div>
+            <div className='w-4 h-4 bg-background rounded'></div>
           </div>
-          <div className='h-5 bg-gray-200 rounded flex-shrink-0 mr-4 w-[440px]'></div>
-          <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-          <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-          <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-          <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-          <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-          <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-          <div className='w-28 h-5 bg-gray-200 rounded flex-shrink-0 mr-4'></div>
-          <div className='w-32 h-5 bg-gray-200 rounded flex-shrink-0'></div>
+          <div className='h-5 bg-background rounded flex-shrink-0 mr-4 w-[440px]'></div>
+          <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+          <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+          <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+          <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+          <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+          <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+          <div className='w-28 h-5 bg-background rounded flex-shrink-0 mr-4'></div>
+          <div className='w-32 h-5 bg-background rounded flex-shrink-0'></div>
         </div>
       ))}
     </div>
   );
 };
-
-// export default TableShimmer

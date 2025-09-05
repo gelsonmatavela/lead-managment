@@ -31,21 +31,18 @@ export default function AddFilterSelect({
         if (newField)
           addCondition({
             field: newField,
-            // operator: filterTypes[newField.type].operators[0],
             value: "",
           });
       }}
     >
-      <option value="" className="bg-white text-zinc-900">
-        {/* {parentField
-          ? `Adicionar filtro de ${parentField.label}`
-          : "Adicionar filtro"} */}
+      <option value="" className="bg-background text-zinc-200">
+     
         Adicionar filtro
       </option>
 
       {fields.map((field) => (
         <option
-          className="bg-white text-zinc-900"
+          className="bg-background text-zinc-200"
           key={field.name}
           value={field.name}
         >

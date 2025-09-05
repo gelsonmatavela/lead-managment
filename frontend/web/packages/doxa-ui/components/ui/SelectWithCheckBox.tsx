@@ -65,7 +65,7 @@ export default function SelectWithCheckbBox({
       <div
         data-focus={isFocused}
         className={twMerge(
-          'flex  rounded-md border border-zinc-300 bg-background  ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm bg-white md:flex-1 placeholder:text-zinc-300 placeholder:font-normal flex-row data-[focus=true]:outline-primary-500 data-[focus=true]:outline-2 data-[focus=true]:outline',
+          'flex  rounded-md border border-zinc-300 bg-background  ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm  md:flex-1 placeholder:text-black placeholder:font-normal flex-row data-[focus=true]:outline-primary-500 data-[focus=true]:outline-2 data-[focus=true]:outline',
           selectContainerClassName
         )}
       >
@@ -90,7 +90,7 @@ export default function SelectWithCheckbBox({
       </div>
 
       {isOpen && (
-        <div className='fixed w-60 right-6 mt-10 bg-white border rounded-md shadow-lg max-h-60 overflow-auto z-[99]'>
+        <div className='fixed w-60 right-6 mt-10 bg-background border rounded-md shadow-lg max-h-60 overflow-auto z-[99]'>
           {options.map((option) => (
             <div
               key={option.value}
@@ -99,7 +99,7 @@ export default function SelectWithCheckbBox({
                   setSelectedOptions(selectedOptions.filter((val) => val !== option.value));
                 else setSelectedOptions([...selectedOptions, option.value]);
               }}
-              className={twMerge('p-2 cursor-pointer hover:bg-zinc-50 flex justify-between')}
+              className={twMerge('p-2 cursor-pointer hover:bg-background flex justify-between')}
             >
               <span>{option.label}</span>
               <div>

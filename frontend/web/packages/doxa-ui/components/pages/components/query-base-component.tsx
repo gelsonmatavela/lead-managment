@@ -179,7 +179,6 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
   EmptyStateComponent,
   showRefreshIndicator = true,
 }: QueryBaseComponentProps<DataType, PassedSuccessComponentProps>) {
-  // Enhanced state management
   const [page, setPage] = useState(1);
   const [queryParams, setQueryParams] = useState<any>(params);
   const [isRefetch, setIsRefetch] = useState(false);
@@ -188,17 +187,12 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
   const [lastSuccessTime, setLastSuccessTime] = useState<Date | null>(null);
   const [showSuccessIndicator, setShowSuccessIndicator] = useState(false);
 
-  // Normalize params to include pagination
   const normalizedParams = typeof params === 'object' ? { page, ...params } : params;
 
-  // RTK Query hook
   const { isLoading, isError, isSuccess, error, refetch, isFetching, data } = (api as any)[name][
     query
   ](queryParams);
 
-  /**
-   * Enhanced refetch with optimistic UI and retry logic
-   */
   const handleRefetch = async () => {
     try {
       setRetryCount((prev) => prev + 1);
@@ -206,7 +200,6 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
       setRetryCount(0);
       setLastSuccessTime(new Date());
 
-      // Show success indicator briefly
       if (showRefreshIndicator) {
         setShowSuccessIndicator(true);
         setTimeout(() => setShowSuccessIndicator(false), 2000);
@@ -216,9 +209,6 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
     }
   };
 
-  /**
-   * Handles loading more data when reaching the end of the content
-   */
   const handleEndReached = () => {
     const limit = (normalizedParams as Record<string, any>).limit || 30;
     const canLoadMore = data?.data && Array.isArray(data.data) && data.data.length % limit === 0;
@@ -229,7 +219,6 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
     }
   };
 
-  // Reset loading states after fetch completion
   useEffect(() => {
     if (!isFetching && !isLoading && (isSuccess || isError)) {
       setIsRefetch(false);
@@ -237,7 +226,6 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
     }
   }, [isFetching, isLoading, isSuccess, isError]);
 
-  // Setup automatic reload interval
   useEffect(() => {
     if (reloadAgainAfter > 0) {
       const interval = setInterval(handleRefetch, reloadAgainAfter);
@@ -245,7 +233,6 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
     }
   }, [reloadAgainAfter]);
 
-  // Update query params when normalized params change
   useEffect(() => {
     if (!equal(normalizedParams, queryParams)) {
       setQueryParams(normalizedParams);
@@ -253,14 +240,12 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
     }
   }, [normalizedParams]);
 
-  // Track successful data loads
   useEffect(() => {
     if (isSuccess && data?.data) {
       setLastSuccessTime(new Date());
     }
   }, [isSuccess, data]);
 
-  // Handle loading states with better UX
   if (isLoading || (isRefetch && isFetching && !enableOptimisticUI)) {
     return (
       <div className='flex flex-col items-center justify-center py-12 px-4'>
@@ -270,7 +255,6 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
     );
   }
 
-  // Handle error states with enhanced error categorization
   if (isError) {
     const getErrorConfig = (): ErrorDisplayConfig => {
       if (!error) {
@@ -281,7 +265,6 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
         };
       }
 
-      // Network errors
       if (error.status === 'FETCH_ERROR' || !navigator.onLine) {
         return {
           Icon: WifiOffIcon,
@@ -349,16 +332,14 @@ export default function QueryBaseComponent<DataType, PassedSuccessComponentProps
     );
   }
 
-  // Handle success state with enhanced UX
   if (isSuccess && data?.data) {
     const hasData = Array.isArray(data.data) ? data.data.length > 0 : true;
 
     if (hasData) {
       return (
         <div className='relative'>
-          {/* Success indicator */}
           {showSuccessIndicator && (
-            <div className='fixed top-4 right-4 z-50 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 animate-in slide-in-from-top-2 duration-300'>
+            <div className='fixed top-4 right-4 z-50 bg-green-500 text-zinc-700 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 animate-in slide-in-from-top-2 duration-300'>
               <CheckCircleIcon className='size-4' />
               <span className='text-sm'>Dados atualizados</span>
             </div>

@@ -69,7 +69,7 @@ export default function FilterBuilderContainer({
           <Button
             ref={filtersButtonRef}
             onClick={() => setShowFilters(!showFilters)}
-            className='bg-blue-100 text-blue-700 border rounded-sm hover:bg-blue-50 px-2 border-blue-400 h-[38px]'
+            className='bg-background text-primary-500 border rounded-sm hover:bg-backgorund px-2 border-primary-400 h-[38px]'
           >
             <ListFilterPlusIcon size={18} />
 
@@ -83,7 +83,7 @@ export default function FilterBuilderContainer({
         <div
           ref={filtersBuilderRef}
           data-hidden={!showFilters}
-          className='fixed h-fit md:max-h-[70vh] max-h-[55vh] overflow-y-auto bg-white p-2 card rounded-md border-zinc-200 border mt-10 data-[hidden=true]:hidden z-[999]'
+          className='fixed h-fit md:max-h-[70vh] max-h-[55vh] overflow-y-auto bg-background p-2 card rounded-md border-zinc-200 border mt-10 data-[hidden=true]:hidden z-[999]'
         >
           <FilterBuilder
             initialConditions={conditions}

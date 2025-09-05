@@ -27,7 +27,6 @@ import { useTranslations } from 'next-intl';
 export default function Sidebar() {
   const translateSidebar = useTranslations("layout.sidebar");
   
-  // Destructure apenas as funções que precisamos
   const { 
     isCollapsed, 
     toggleSidebar 
@@ -40,24 +39,12 @@ export default function Sidebar() {
       icon: Square ,
       href: '/admin/dashboard',
     },
-    {
-      id: 'analytics',
-      label: translateSidebar("main-nav-items.analytics"),
-      icon: TrendingUp,
-      href: '/analytics',
-    },
-    {
-      id: 'calendar',
-      label: translateSidebar("main-nav-items.calendar"),
-      icon: Calendar,
-      href: '/calendar',
-    },
-    {
-      id: 'settings',
-      label: translateSidebar("main-nav-items.settings"),
-      icon: Settings,
-      href: '/admin/settings',
-    },
+    // {
+    //   id: 'settings',
+    //   label: translateSidebar("main-nav-items.settings"),
+    //   icon: Settings,
+    //   href: '/admin/settings',
+    // },
   ];
 
   const usersIContent = [
@@ -66,62 +53,14 @@ export default function Sidebar() {
       label: translateSidebar("user-content.all-users"),
       icon: Hash,
       count: 4,
-      href: '/admin/users',
+      href: '/admin/leaders',
     },
     {
-      id: 'create-user',
+      id: 'create-leader',
       label: translateSidebar("user-content.create-user"),
       icon: UserRoundPlus,
       count: 0,
-      href: '/admin/users/create-user',
-    },
-  ];
-
-  const statusItems = [
-    {
-      id: 'new-status',
-      label: translateSidebar("status-items.upload-video"),
-      icon: Circle,
-      count: 5,
-      href: '/opportunities?status=new',
-    },
-    {
-      id: 'open-status',
-      label: translateSidebar("status-items.play-videos"),
-      icon: Play,
-      count: 2,
-      href: '/opportunities?status=open',
-    },
-    {
-      id: 'solved-status',
-      label: translateSidebar("status-items.post-content"),
-      icon: CheckCircle,
-      count: 1,
-      href: '/opportunities?status=solved',
-    },
-  ];
-
-  const groupItems = [
-    {
-      id: 'marketing-group',
-      label: translateSidebar("group-items.marketing"),
-      icon: Target,
-      count: 3,
-      href: '/opportunities?group=marketing',
-    },
-    {
-      id: 'sales-group',
-      label: translateSidebar("group-items.sales"),
-      icon: Zap,
-      count: 1,
-      href: '/opportunities?group=sales',
-    },
-    {
-      id: 'design-group',
-      label: translateSidebar("group-items.design"),
-      icon: Palette,
-      count: 4,
-      href: '/opportunities?group=design',
+      href: '/admin/leades/create-leader',
     },
   ];
 
@@ -212,18 +151,7 @@ export default function Sidebar() {
               title={translateSidebar("user-content.title")}
               items={usersIContent}
             />
-
-            <SidebarDropdown
-              id="status"
-              title={translateSidebar("status-items.title")}
-              items={statusItems}
-            />
-
-            <SidebarDropdown
-              id="groups"
-              title={translateSidebar("group-items.title")}
-              items={groupItems}
-            />
+           
           </div>
         </div>
 
@@ -233,7 +161,7 @@ export default function Sidebar() {
         )}>
           {!isCollapsed ? (
             <div className="text-xs text-gray-500 text-center">
-              © 2025  LEAD MANANGEMENTs
+              © 2025  LEAD MANANGEMENTS
             </div>
           ) : (
             <div className="w-full h-0.5 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full opacity-50" />

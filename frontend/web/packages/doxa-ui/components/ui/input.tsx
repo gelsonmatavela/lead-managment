@@ -109,7 +109,7 @@ export default function Input({
       <div
         data-focus={isFocused}
         className={twMerge(
-          'flex w-full rounded-md border border-zinc-300 bg-background  ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50  bg-white flex-1 placeholder:text-zinc-300 placeholder:font-normal flex-row data-[focus=true]:outline-primary-500 data-[focus=true]:outline-2 data-[focus=true]:outline items-center',
+          'flex w-full rounded-md border border-zinc-300 bg-background  ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1 placeholder:text-zinc-300 placeholder:font-normal flex-row data-[focus=true]:outline-primary-500 data-[focus=true]:outline-2 data-[focus=true]:outline items-center',
           inputContainerClassName
         )}
       >
@@ -130,7 +130,7 @@ export default function Input({
           onChange={(e) => handleOnChange(e.currentTarget.value)}
           value={type === 'date' ? value.toString().split('T')[0] || value : value}
           placeholder={placeholder}
-          className={twMerge(' p-1 px-2 rounded-md disabled:bg-zinc-100 w-full', inputClassName)}
+          className={twMerge(' p-1 px-2 rounded-md disabled:bg-background w-full', inputClassName)}
           step='any'
           ref={inputRef}
           {...props}

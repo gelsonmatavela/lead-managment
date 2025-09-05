@@ -23,13 +23,13 @@ export const userFilteringFields: FilteringField[] = [
     inputType: "text",
     prismaField: "picture",
   },
-  {
-    name: "password",
-    label: "Password",
-    type: "TEXT",
-    inputType: "text",
-    prismaField: "password",
-  },
+  // {
+  //   name: "password",
+  //   label: "Password",
+  //   type: "TEXT",
+  //   inputType: "text",
+  //   prismaField: "password",
+  // },
   {
     name: "address",
     label: "Address",
@@ -39,13 +39,13 @@ export const userFilteringFields: FilteringField[] = [
     relationType: "manyToOne",
     relationFilteringFields: () => addressFilteringFields,
   },
-  {
-    name: "passwordChangedAt",
-    label: "Password Changed At",
-    type: "DATE",
-    inputType: "date",
-    prismaField: "passwordChangedAt",
-  },
+  // {
+  //   name: "passwordChangedAt",
+  //   label: "Password Changed At",
+  //   type: "DATE",
+  //   inputType: "date",
+  //   prismaField: "passwordChangedAt",
+  // },
   {
     name: "lastLoginAt",
     label: "Last Login At",
@@ -67,13 +67,13 @@ export const userFilteringFields: FilteringField[] = [
     inputType: "checkbox",
     prismaField: "isStaff",
   },
-  {
-    name: "deletedSelfAccountAt",
-    label: "Deleted Self Account At",
-    type: "DATE",
-    inputType: "date",
-    prismaField: "deletedSelfAccountAt",
-  },
+  // {
+  //   name: "deletedSelfAccountAt",
+  //   label: "Deleted Self Account At",
+  //   type: "DATE",
+  //   inputType: "date",
+  //   prismaField: "deletedSelfAccountAt",
+  // },
   {
     name: "isActive",
     label: "Is Active",

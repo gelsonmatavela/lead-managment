@@ -69,12 +69,10 @@ export default function SidebarDropdown({
             />
           </button>
           
-          {/* Divider */}
           <div className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mx-3" />
         </>
       )}
 
-      {/* Dropdown Items */}
       <div className={cn(
         "space-y-1 transition-all duration-300 ease-in-out",
         !isCollapsed && !isExpanded && "max-h-0 overflow-hidden opacity-0",
@@ -94,7 +92,6 @@ export default function SidebarDropdown({
           />
         ))}
         
-        {/* Add New Button */}
         {canAddNew && onAddNew && (!isCollapsed ? isExpanded : true) && (
           <button
             onClick={handleAddNew}
@@ -118,7 +115,6 @@ export default function SidebarDropdown({
               )}
             </div>
             
-            {/* Tooltip para quando collapsed */}
             {isCollapsed && (
               <div className="absolute left-full ml-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50 border border-gray-700">
                 {addNewLabel}

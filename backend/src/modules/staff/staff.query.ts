@@ -6,6 +6,7 @@ const StaffPrismaQueryOptions: PrismaQueryOptions<typeof prisma.staff> = {
     include:{
         user: true,
         companyAsLeader: true,
+        company: true,
     }
   },
 };

@@ -156,7 +156,7 @@ export default function FilterBuilder({
           borderColor: " rgb(228 228 231 / #e4e4e7 )",
         }}
         data-is-first-level={level === 0}
-        className="p-2 rounded-md h-fit w-fit text-[0.875rem] bg-white z-[999]"
+        className="p-2 rounded-md h-fit w-fit text-[0.875rem] bg-black z-[999]"
       >
         <div className="flex gap-2 flex-col">
           {conditions.map((condition) => (
@@ -280,7 +280,7 @@ export default function FilterBuilder({
           {conditions.length > 0 && (
             <div
               style={{ width: "2px", opacity: level > 0 ? 1 : 0 }}
-              className="h-2 w-[1px] bg-zinc-200"
+              className="h-2 w-[1px] bg-blackground"
             />
           )}
           <AddFilterSelect
