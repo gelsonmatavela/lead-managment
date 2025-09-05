@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.swal-high-z {
+  z-index: 10001 !important;
+}
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 98%;
+
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 21 90% 48%; 
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 84% 60%; 
+  --secondary-foreground: 0 0% 100%;
+
+  --tertiary: 217 91% 60%; 
+  --tertiary-foreground: 0 0% 100%;
+
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+
+  --accent: 21 90% 48%; 
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 20%;
+  --input: 0 0% 10%;
+  --ring: 21 90% 48%;
+
+  --chart-1: 21 90% 48%; 
+  --chart-2: 0 84% 60%; 
+  --chart-3: 217 91% 60%; 
+  --chart-4: 142 76% 36%;
+  --chart-5: 262 83% 58%;
+
+  --sidebar-background: 0 0% 5%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 21 90% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 15%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 0 0% 20%;
+  --sidebar-ring: 21 90% 48%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 98%;
+
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 21 100% 55%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 84% 60%;
+  --secondary-foreground: 0 0% 100%;
+
+  --tertiary: 217 91% 60%;
+  --tertiary-foreground: 0 0% 100%;
+
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+
+  --accent: 21 100% 55%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 20%;
+  --input: 0 0% 10%;
+  --ring: 21 100% 55%;
+
+  --sidebar-background: 0 0% 5%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 21 100% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 15%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 0 0% 20%;
+  --sidebar-ring: 21 100% 55%;
+}
+
+/* @config "../tailwind.config.ts"; */
+
+/* @import "../public/css/colors.css";
+@import "../public/css/main.css"; */
+
+body {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+}
+
+#inner-content::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(249, 115, 22, 0.1) 0, 
+    rgba(249, 115, 22, 0.1) calc(100% / 12),
+    rgba(59, 130, 246, 0.1) calc(100% / 12), 
+    rgba(59, 130, 246, 0.1) calc(100% / 12 * 2)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+@layer components {
+  * {
+    @apply box-border;
+  }
+}
+
+@theme {
+  --breakpoint-small-sm: 32rem;
+  --breakpoint-small-md: 40rem;
+  --breakpoint-small-lg: 56rem; 
+  --breakpoint-small-xl: 72rem; 
+  --breakpoint-small-2xl: 88rem;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 21 90% 48%; 
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 84% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 21 90% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 10%;
+    --ring: 21 90% 48%;
+    --chart-1: 21 90% 48%;
+    --chart-2: 0 84% 60%; 
+    --chart-3: 217 91% 60%;
+    --chart-4: 142 76% 36%; 
+    --chart-5: 262 83% 58%; 
+    --radius: 0.5rem;
+  }
+  
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 21 90% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 84% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 21 90% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 21 90% 48%;
+    --chart-1: 21 90% 48%;
+    --chart-2: 0 84% 60%;
+    --chart-3: 217 91% 60%;
+    --chart-4: 142 76% 36%;
+    --chart-5: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border [&::-webkit-scrollbar]:size-[8px]
+    [&::-webkit-scrollbar-track]:rounded-full
+    [&::-webkit-scrollbar-track]:bg-zinc-800
+    [&::-webkit-scrollbar-thumb]:rounded-full
+    [&::-webkit-scrollbar-thumb]:bg-zinc-600;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .client {
+    @apply bg-zinc-900; 
+  }
+
+  input {
+    @apply outline-none bg-zinc-900 text-white border-zinc-700;
+  }
+
+  input[type='checkbox'] {
+    @apply cursor-pointer;
+  }
+
+  .nextjs-toast {
+    display: none;
+  }
+
+  .button {
+    @apply transition-all bg-primary hover:bg-primary/80 rounded-md p-2 active:opacity-80 items-center justify-center text-white flex gap-2 disabled:bg-zinc-600 disabled:active:opacity-100 px-4;
+  }
+
+  .cancel-button {
+    @apply button bg-secondary hover:bg-secondary/80;
+  }
+
+  .card {
+    @apply [box-shadow:0px_0px_6px_rgb(249_115_22_/_0.2)] border border-zinc-800 bg-zinc-900;
+  }
+
+  .darker-shadow {
+    @apply [box-shadow:0px_0px_8px_rgb(0_0_0_/_0.5)];
+  }
+
+  .main-container {
+    @apply overflow-auto h-[calc(100vh-165px)] sm:h-[calc(100vh-132px)] w-full rounded-md mt-2 flex flex-col p-2 bg-zinc-900 card;
+  }
+
+  .main-container-content {
+    @apply min-h-[calc(100vh/2)] flex flex-col;
+  }
+
+  .inner-content {
+    @apply max-w-[1536px] mx-auto md:p-4 p-2 grid grid-cols-12 relative;
+  }
+
+  .w-full-product-grid {
+    @apply grid lg:grid-cols-5 xl:grid-cols-6 small-lg:grid-cols-4 small-sm:grid-cols-3 grid-cols-2 md:gap-2 gap-1 md:mt-6 lg:mt-8 mt-2;
+  }
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,0 +1,29 @@
+{
+  "sidebar": {
+    "main-nav-items": {
+      "dashboard": "Dashboard",
+      "analytics": "Analytics",
+      "calendar": "Calendar",
+      "settings": "Settings"
+    },
+    "user-content": {
+        "title": "USERS",
+      "all-users": "All",
+      "create-user": "Create"
+    },
+
+    "status-items": {
+        "title":"CONTENTS",
+      "upload-video": "Upload Video",
+      "play-videos": "Play Videos",
+      "post-content": "Post Content"
+    },
+
+    "group-items":{
+        "title":"MARKETING",
+        "marketing": "Marketing",
+        "sales": "Sales",
+        "design": "Design"
+    }
+  }
+}

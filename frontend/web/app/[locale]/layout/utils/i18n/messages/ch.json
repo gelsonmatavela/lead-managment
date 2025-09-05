@@ -1,0 +1,27 @@
+{
+  "sidebar": {
+    "main-nav-items": {
+      "dashboard": "仪表板",
+      "analytics": "分析",
+      "calendar": "日历",
+      "settings": "设置"
+    },
+    "user-content": {
+      "title": "用户",
+      "all-users": "全部",
+      "create-user": "创建"
+    },
+    "status-items": {
+      "title": "内容",
+      "upload-video": "上传视频",
+      "play-videos": "播放视频",
+      "post-content": "发布内容"
+    },
+    "group-items": {
+      "title": "市场营销",
+      "marketing": "市场营销",
+      "sales": "销售",
+      "design": "设计"
+    }
+  }
+}

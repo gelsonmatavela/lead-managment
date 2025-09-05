@@ -13,6 +13,17 @@ const userQueryOptions: PrismaQueryOptions<typeof prisma.user> = {
             role: true,
           }
         },
+        staff: {
+          include:{
+            company:{
+              include:{
+                leaders: true,
+                address: true
+              }
+            }
+          }
+        },
+        address: true,
       },
     },
     findOne: {

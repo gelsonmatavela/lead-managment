@@ -1,0 +1,27 @@
+{
+  "sidebar": {
+    "main-nav-items": {
+      "dashboard": "Painel",
+      "analytics": "Análises",
+      "calendar": "Calendário",
+      "settings": "Configurações"
+    },
+    "user-content": {
+      "title": "USUÁRIOS",
+      "all-users": "Todos",
+      "create-user": "Criar"
+    },
+    "status-items": {
+      "title": "CONTEÚDOS",
+      "upload-video": "Enviar Vídeo",
+      "play-videos": "Reproduzir Vídeos",
+      "post-content": "Publicar Conteúdo"
+    },
+    "group-items": {
+      "title": "MARKETING",
+      "marketing": "Marketing",
+      "sales": "Vendas",
+      "design": "Design"
+    }
+  }
+}

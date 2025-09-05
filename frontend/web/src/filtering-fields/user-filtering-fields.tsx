@@ -1,0 +1,98 @@
+import { FilteringField } from "@/packages/doxa-ui/components/ui/filter-builder/types";
+import { addressFilteringFields } from "./address-filtering-fields";
+
+export const userFilteringFields: FilteringField[] = [
+  {
+    name: "email",
+    label: "Email",
+    type: "TEXT",
+    inputType: "text",
+    prismaField: "email",
+  },
+  {
+    name: "name",
+    label: "Name",
+    type: "TEXT",
+    inputType: "text",
+    prismaField: "name",
+  },
+  {
+    name: "picture",
+    label: "Picture",
+    type: "TEXT",
+    inputType: "text",
+    prismaField: "picture",
+  },
+  {
+    name: "password",
+    label: "Password",
+    type: "TEXT",
+    inputType: "text",
+    prismaField: "password",
+  },
+  {
+    name: "address",
+    label: "Address",
+    type: "RELATION",
+    inputType: "relation-picker",
+    prismaField: "address",
+    relationType: "manyToOne",
+    relationFilteringFields: () => addressFilteringFields,
+  },
+  {
+    name: "passwordChangedAt",
+    label: "Password Changed At",
+    type: "DATE",
+    inputType: "date",
+    prismaField: "passwordChangedAt",
+  },
+  {
+    name: "lastLoginAt",
+    label: "Last Login At",
+    type: "DATE",
+    inputType: "date",
+    prismaField: "lastLoginAt",
+  },
+  {
+    name: "isSuperUser",
+    label: "Is Super User",
+    type: "BOOLEAN",
+    inputType: "checkbox",
+    prismaField: "isSuperUser",
+  },
+  {
+    name: "isStaff",
+    label: "Is Staff",
+    type: "BOOLEAN",
+    inputType: "checkbox",
+    prismaField: "isStaff",
+  },
+  {
+    name: "deletedSelfAccountAt",
+    label: "Deleted Self Account At",
+    type: "DATE",
+    inputType: "date",
+    prismaField: "deletedSelfAccountAt",
+  },
+  {
+    name: "isActive",
+    label: "Is Active",
+    type: "BOOLEAN",
+    inputType: "checkbox",
+    prismaField: "isActive",
+  },
+  {
+    name: "roles",
+    label: "Roles",
+    type: "RELATION",
+    inputType: "relation-picker",
+    prismaField: "roles",
+  },
+  {
+    name: "staff",
+    label: "Staff",
+    type: "RELATION",
+    inputType: "relation-picker",
+    prismaField: "staff",
+  },
+];
