@@ -1,0 +1,11 @@
+model Staff{
+    id String @id @default(uuid())
+    userId String @unique
+    companyCode String
+    companyId String
+
+    company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    companyAsLeader Company[] @relation("CompanyLeaders")
+}
